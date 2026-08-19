@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account | The Learning Ledge</title>
+  <link rel="shortcut icon" href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../CSS Pages/auth.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../HTML Pages/index.html">
+      <img src="../assets/images/Logo Icon.png" alt="The Learning Ledge Logo" />
+      <span class="logo-text">The <span>Learning</span> Ledge</span>
+    </a>
+  </header>
+
+  <main class="auth-shell">
+
+    <section class="brand-panel">
+      <div class="brand-content">
+        <img src="../assets/images/Official Logo.png" alt="The Learning Ledge" />
+        <h1>THE <span>LEARNING</span> LEDGE</h1>
+        <p>Your journey from preparation to mastery starts here.</p>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join The Learning Ledge as a Scholar.</p>
+
+        <div id="message" class="message"></div>
+
+        <form id="authForm" data-mode="signup">
+          <div class="name-grid">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="level">Class level</label>
+              <input id="level" type="text" placeholder="e.g. SS3" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" type="password" placeholder="Create a password" required />
+              <button class="toggle-pass" type="button" data-target="password">Show</button>
+            </div>
+          </div>
+
+          <button class="primary-btn" type="submit">Create Account</button>
+        </form>
+
+        <p class="switch">Already have an account? <a href="../HTML Pages/login.html">Sign in</a></p>
+        <p class="terms">By creating an account, you agree to our <a href="../HTML Pages/terms.html">Terms of Condition</a> and <a href="../HTML Pages/privacy.html">Privacy Policy</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../JS Pages/auth.js"></script>
+</body>
+</html>

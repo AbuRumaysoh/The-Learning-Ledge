@@ -1,0 +1,390 @@
+/* ==========================================================================
+   The Learning Ledge — Auth Pages (Sign In / Sign Up / Sign Out)
+   Shares the design tokens defined in style.css so every screen —
+   marketing site, auth, and dashboard — reads as one product.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;700&display=swap');
+
+:root {
+  --ink: #0f1b3a;
+  --blue: #2563eb;
+  --blue-dim: #1d4fc4;
+  --blue-tint: #eef3ff;
+  --green: #10b981;
+  --green-dim: #0ea271;
+  --green-tint: #e9fbf4;
+  --slate: #374151;
+  --muted: #6b7280;
+  --paper: #f6f9ff;
+  --white: #ffffff;
+  --line: #e7ecf5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--slate);
+  background: var(--white);
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* ---- Top bar (shared with the rest of the site: logo links home) ---- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 18px 5%;
+}
+
+.site-header a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.site-header img {
+  width: 34px;
+  height: auto;
+  display: block;
+}
+
+.site-header .logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.site-header .logo-text span {
+  color: var(--green);
+}
+
+/* ---- Split shell: brand panel + form panel ---- */
+
+.auth-shell {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  grid-template-columns: 42% 58%;
+}
+
+.brand-panel {
+  background: linear-gradient(145deg, var(--blue-tint) 0%, var(--paper) 45%, var(--green-tint) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-panel::before,
+.brand-panel::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.25;
+}
+
+.brand-panel::before {
+  width: 360px;
+  height: 360px;
+  background: var(--blue);
+  top: -90px;
+  left: -100px;
+}
+
+.brand-panel::after {
+  width: 400px;
+  height: 400px;
+  background: var(--green);
+  right: -140px;
+  bottom: -100px;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.brand-content img {
+  width: min(220px, 60%);
+  margin-bottom: 18px;
+}
+
+.brand-content h1 {
+  font: 700 2rem 'Poppins', sans-serif;
+  color: var(--ink);
+}
+
+.brand-content h1 span {
+  color: var(--green);
+}
+
+.brand-content p {
+  margin-top: 10px;
+  color: var(--slate);
+}
+
+.auth-panel {
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.auth-card {
+  width: min(440px, 100%);
+}
+
+.auth-card h2 {
+  text-align: center;
+  font: 700 2rem 'Poppins', sans-serif;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+
+.auth-card .subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+/* ---- Form fields ---- */
+
+.field {
+  margin-bottom: 17px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: var(--ink);
+}
+
+.field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  color: var(--ink);
+  background: var(--white);
+  transition: 0.2s ease;
+}
+
+.field input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px var(--blue-tint);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 5px 0 22px;
+  font-size: 0.9rem;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--slate);
+}
+
+.remember input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--blue);
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 48px;
+}
+
+.toggle-pass {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.name-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ---- Buttons & messages (same visual language as the marketing site) ---- */
+
+.primary-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  padding: 14px;
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: var(--blue-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+.switch {
+  text-align: center;
+  margin-top: 12px;
+  color: var(--slate);
+}
+
+.terms {
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: 42px;
+}
+
+.message {
+  display: none;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--green-tint);
+  color: var(--green-dim);
+  font-size: 0.86rem;
+}
+
+/* ---- Sign-out confirmation screen ---- */
+
+.signout-shell {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: var(--paper);
+}
+
+.signout-card {
+  width: min(420px, 100%);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 44px 36px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(15, 27, 58, 0.06);
+}
+
+.signout-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--green-tint);
+  color: var(--green-dim);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  margin: 0 auto 18px;
+}
+
+.signout-card h2 {
+  font: 700 1.5rem 'Poppins', sans-serif;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.signout-card p {
+  color: var(--muted);
+  margin-bottom: 26px;
+  line-height: 1.55;
+}
+
+.signout-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.btn-outline {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-weight: 600;
+  background: var(--white);
+  transition: 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 800px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-panel {
+    display: none;
+  }
+
+  .auth-panel {
+    padding: 32px 20px;
+  }
+
+  .terms {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card h2 {
+    font-size: 1.7rem;
+  }
+}

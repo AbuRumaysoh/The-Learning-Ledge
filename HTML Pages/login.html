@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | The Learning Ledge</title>
+  <link rel="shortcut icon" href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../CSS Pages/auth.css" />
+</head>
+<body>
+
+  <!-- Same header pattern as index.html, so the logo carries across every page -->
+  <header class="site-header">
+    <a href="../HTML Pages/index.html">
+      <img src="../assets/images/Logo Icon.png" alt="The Learning Ledge Logo" />
+      <span class="logo-text">The <span>Learning</span> Ledge</span>
+    </a>
+  </header>
+
+  <main class="auth-shell">
+
+    <!-- Brand panel: reflects the hero messaging from the landing page -->
+    <section class="brand-panel">
+      <div class="brand-content">
+        <img src="../assets/images/Official Logo.png" alt="The Learning Ledge" />
+        <h1>THE <span>LEARNING</span> LEDGE</h1>
+        <p>Unmasking Ignorance with Knowledge.</p>
+      </div>
+    </section>
+
+    <!-- Sign in form -->
+    <section class="auth-panel">
+      <div class="auth-card">
+        <h2>Sign In</h2>
+        <p class="subtitle">Welcome back, Scholar.</p>
+
+        <div id="message" class="message"></div>
+
+        <form id="authForm">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" placeholder="Enter your email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" type="password" placeholder="Enter your password" required />
+              <button class="toggle-pass" type="button" data-target="password">Show</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="remember">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" onclick="alert('Password reset would be connected to the backend here.'); return false;">Forgot password?</a>
+          </div>
+
+          <button class="primary-btn" type="submit">Sign In</button>
+        </form>
+
+        <p class="switch">Don't have an account? <a href="signup.html">Sign up</a></p>
+        <p class="terms">By continuing, I agree to the <a href="#">Terms of Condition</a> and <a href="#">Privacy Policy</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../JS Pages/auth.js"></script>
+</body>
+</html>

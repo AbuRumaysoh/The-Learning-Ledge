@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Notes | The Learning Ledge</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png"
+    />
+    <link rel="stylesheet" href="../CSS Pages/dashboard-pages.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <a class="brand" href="../HTML Pages/dashboard.html"
+          ><img src="../assets/images/Logo Icon.png" alt="" /><span
+            >The <span>Learning</span> Ledge</span
+          ></a
+        >
+        <nav class="side-nav">
+          <a class="" href="../HTML Pages/dashboard.html"
+            ><i class="fa-solid fa-house"></i><span>Home</span></a
+          ><a class="" href="../HTML Pages/classroom.html"
+            ><i class="fa-solid fa-book-open"></i><span>Classroom</span></a
+          ><a class="active" href="../HTML Pages/notes.html"
+            ><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a
+          ><a class="" href="../HTML Pages/progress.html"
+            ><i class="fa-solid fa-chart-line"></i><span>Progress</span></a
+          >
+        </nav>
+        <div class="side-bottom">
+          <button class="signout" onclick="location.href = 'signout.html'">
+            <i class="fa-solid fa-right-from-bracket"></i> Log out
+          </button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="top">
+          <div>
+            <h1>My Notes</h1>
+            <p>Keep short revision points where you can find them quickly.</p>
+          </div>
+          <a class="btn secondary" href="../HTML Pages/settings.html"
+            ><i class="fa-solid fa-gear"></i> Settings</a
+          >
+        </header>
+        <div class="card">
+          <h2>Revision Notes</h2>
+          <p>
+            These are sample notes for the demo. You can later connect this area
+            to a database.
+          </p>
+          <div class="list">
+            <div class="list-row">
+              <div>
+                <strong>Mathematics — Algebra</strong>
+                <div class="small">Key terms and worked examples</div>
+              </div>
+              <a class="btn secondary" href="#">Read</a>
+            </div>
+            <div class="list-row">
+              <div>
+                <strong>Biology — Cell Structure</strong>
+                <div class="small">Organelles and their functions</div>
+              </div>
+              <a class="btn secondary" href="#">Read</a>
+            </div>
+            <div class="list-row">
+              <div>
+                <strong>English — Comprehension</strong>
+                <div class="small">Reading strategies</div>
+              </div>
+              <a class="btn secondary" href="#">Read</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script>
+      const u = JSON.parse(localStorage.getItem("learningLedgeUser") || "null");
+      if (!u) location.href = "login.html";
+    </script>
+  </body>
+</html>

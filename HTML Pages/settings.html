@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Settings | The Learning Ledge</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png"
+    />
+    <link rel="stylesheet" href="../CSS Pages/dashboard-pages.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <a class="brand" href="../HTML Pages/dashboard.html"
+          ><img src="../assets/images/Logo Icon.png" alt="" /><span
+            >The <span>Learning</span> Ledge</span
+          ></a
+        >
+        <nav class="side-nav">
+          <a href="../HTML Pages/dashboard.html"
+            ><i class="fa-solid fa-house"></i><span>Home</span></a
+          >
+          <a href="../HTML Pages/classroom.html"
+            ><i class="fa-solid fa-book-open"></i><span>Classroom</span></a
+          >
+          <a href="../HTML Pages/notes.html"
+            ><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a
+          >
+          <a href="../HTML Pages/progress.html"
+            ><i class="fa-solid fa-chart-line"></i><span>Progress</span></a
+          >
+        </nav>
+        <div class="side-bottom">
+          <button class="signout" id="logout">
+            <i class="fa-solid fa-right-from-bracket"></i> Log out
+          </button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="top">
+          <div>
+            <h1>Settings</h1>
+            <p>Manage your student profile on this device.</p>
+          </div>
+          <a class="btn secondary" href="../HTML Pages/dashboard.html">Back to dashboard</a>
+        </header>
+        <section class="card">
+          <div class="profile">
+            <div class="profile-img" id="profilePreview">S</div>
+            <div>
+              <h2 id="profileHeading">Scholar</h2>
+              <p>Profile picture</p>
+              <label class="file-label"
+                >Choose picture<input id="photo" type="file" accept="image/*"
+              /></label>
+            </div>
+          </div>
+          <form id="settingsForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full name</label><input id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email address</label
+                ><input id="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="level">Class level</label
+                ><input id="level" placeholder="e.g. SS3" />
+              </div>
+              <div class="field">
+                <label for="school">School</label
+                ><input id="school" placeholder="Your school" />
+              </div>
+              <div class="field">
+                <label for="goal">Study goal</label
+                ><select id="goal">
+                  <option value="">Choose a goal</option>
+                  <option>WAEC</option>
+                  <option>NECO</option>
+                  <option>JAMB</option>
+                  <option>General revision</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="phone">Phone (optional)</label
+                ><input id="phone" placeholder="080..." />
+              </div>
+              <div class="field full">
+                <label for="bio">About me</label
+                ><textarea
+                  id="bio"
+                  placeholder="A short note about your learning goals"
+                ></textarea>
+              </div>
+            </div>
+            <button class="btn" type="submit">Save changes</button
+            ><button
+              class="btn secondary"
+              type="button"
+              id="logout2"
+              style="margin-left: 8px"
+            >
+              Sign out
+            </button>
+            <p
+              id="message"
+              style="margin-top: 12px; color: #0ea271; font-weight: 600"
+            ></p>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script>
+      const KEY = "learningLedgeUser";
+      let user = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (!user) {
+        location.href = "login.html";
+      }
+      const $ = (id) => document.getElementById(id);
+      function load() {
+        $("name").value = user.name || "";
+        $("email").value = user.email || "";
+        $("level").value = user.level || "";
+        $("school").value = user.school || "";
+        $("goal").value = user.goal || "";
+        $("phone").value = user.phone || "";
+        $("bio").value = user.bio || "";
+        $("profileHeading").textContent = user.name || "Scholar";
+        if (user.photo) {
+          $("profilePreview").innerHTML =
+            '<img src="' + user.photo + '" alt="Profile picture">';
+        } else
+          $("profilePreview").textContent = (user.name || "S")
+            .charAt(0)
+            .toUpperCase();
+      }
+      $("photo").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          user.photo = reader.result;
+          $("profilePreview").innerHTML =
+            '<img src="' + reader.result + '" alt="Profile picture">';
+        };
+        reader.readAsDataURL(file);
+      });
+      $("settingsForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        user = {
+          ...user,
+          name: $("name").value.trim(),
+          email: $("email").value.trim(),
+          level: $("level").value.trim(),
+          school: $("school").value.trim(),
+          goal: $("goal").value,
+          phone: $("phone").value.trim(),
+          bio: $("bio").value.trim(),
+        };
+        localStorage.setItem(KEY, JSON.stringify(user));
+        $("profileHeading").textContent = user.name || "Scholar";
+        $("message").textContent = "Profile saved successfully.";
+        setTimeout(() => (location.href = "dashboard.html"), 700);
+      });
+      function signout() {
+        location.href = "signout.html";
+      }
+      $("logout").onclick = signout;
+      $("logout2").onclick = signout;
+      load();
+    </script>
+  </body>
+</html>

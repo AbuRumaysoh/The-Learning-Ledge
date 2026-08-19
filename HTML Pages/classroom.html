@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Classroom | The Learning Ledge</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png"
+    />
+    <link rel="stylesheet" href="../CSS Pages/dashboard-pages.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side">
+        <a class="brand" href="../HTML Pages/dashboard.html"
+          ><img src="../assets/images/Logo Icon.png" alt="" /><span
+            >The <span>Learning</span> Ledge</span
+          ></a
+        >
+        <nav class="side-nav">
+          <a class="" href="../HTML Pages/dashboard.html"
+            ><i class="fa-solid fa-house"></i><span>Home</span></a
+          ><a class="active" href="../HTML Pages/classroom.html"
+            ><i class="fa-solid fa-book-open"></i><span>Classroom</span></a
+          ><a class="" href="../HTML Pages/notes.html"
+            ><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a
+          ><a class="" href="../HTML Pages/progress.html"
+            ><i class="fa-solid fa-chart-line"></i><span>Progress</span></a
+          >
+        </nav>
+        <div class="side-bottom">
+          <button class="signout" onclick="location.href = 'signout.html'">
+            <i class="fa-solid fa-right-from-bracket"></i> Log out
+          </button>
+        </div>
+      </aside>
+      <main class="content">
+        <header class="top">
+          <div>
+            <h1>My Classroom</h1>
+            <p>Choose a subject and continue your learning.</p>
+          </div>
+          <a class="btn secondary" href="../HTML Pages/settings.html"
+            ><i class="fa-solid fa-gear"></i> Settings</a
+          >
+        </header>
+        <div class="grid">
+          <div class="card feature">
+            <div class="icon"><i class="fa-solid fa-calculator"></i></div>
+            <div>
+              <h2>Mathematics</h2>
+              <p>Algebra, geometry and exam practice.</p>
+              <a class="btn" href="../HTML Pages/notes.html">Open subject</a>
+            </div>
+          </div>
+          <div class="card feature">
+            <div class="icon"><i class="fa-solid fa-language"></i></div>
+            <div>
+              <h2>English Language</h2>
+              <p>Grammar, comprehension and vocabulary.</p>
+              <a class="btn" href="../HTML Pages/notes.html">Open subject</a>
+            </div>
+          </div>
+          <div class="card feature">
+            <div class="icon"><i class="fa-solid fa-dna"></i></div>
+            <div>
+              <h2>Biology</h2>
+              <p>Core concepts and revision notes.</p>
+              <a class="btn" href="../HTML Pages/notes.html">Open subject</a>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Next lesson</h2>
+          <p>Mathematics: Introduction to Algebra</p>
+          <div class="progress"><span style="width: 65%"></span></div>
+          <a class="btn" href="../HTML Pages/notes.html">Continue learning</a>
+        </div>
+      </main>
+    </div>
+    <script>
+      const u = JSON.parse(localStorage.getItem("learningLedgeUser") || "null");
+      if (!u) location.href = "login.html";
+    </script>
+  </body>
+</html>

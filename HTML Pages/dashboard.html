@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | The Learning Ledge</title>
+  <link rel="shortcut icon" href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../CSS Pages/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a class="brand" href="../HTML Pages/index.html">
+        <img src="../assets/images/Logo Icon.png" alt="" />
+        <span>The <span>Learning</span> Ledge</span>
+      </a>
+
+      <nav class="nav">
+        <a class="active" href="../HTML Pages/dashboard.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="../HTML Pages/classroom.html"><i class="fa-solid fa-book-open"></i><span>Classroom</span></a>
+        <a href="../HTML Pages/notes.html"><i class="fa-solid fa-note-sticky"></i><span>Notes</span></a>
+        <a href="../HTML Pages/progress.html"><i class="fa-solid fa-chart-line"></i><span>Progress</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="logout" id="logout">
+          <i class="fa-solid fa-right-from-bracket"></i> Log out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <header class="topbar">
+        <div class="welcome">
+          <h1>Hello, <span id="studentName">Scholar</span>!</h1>
+          <p>Keep learning, keep growing.</p>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" onclick="location.href='settings.html'">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <button class="icon-btn" onclick="notify('No new notifications.')">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+          <a href="../HTML Pages/settings.html" class="avatar" id="avatar" style="text-decoration:none">S</a>
+        </div>
+      </header>
+
+      <!-- Progress overview -->
+      <section class="progress-card" id="progress">
+        <div class="progress-head">
+          <h2>My Progress</h2>
+          <span class="percent">20%</span>
+        </div>
+        <p class="progress-sub">Overall learning progress</p>
+        <div class="bar"><span></span></div>
+      </section>
+
+      <!-- Quick stats -->
+      <section class="stats">
+        <div class="stat">
+          <strong>12</strong>
+          <p>Lessons completed</p>
+        </div>
+        <div class="stat">
+          <strong>78%</strong>
+          <p>Average score</p>
+        </div>
+        <div class="stat">
+          <strong>6.5h</strong>
+          <p>Study time</p>
+        </div>
+      </section>
+
+      <!-- Quick access -->
+      <section class="quick">
+        <h2>Quick Access</h2>
+        <div class="quick-grid">
+          <button class="quick-card" onclick="notify('CBT Practice selected')">
+            <div class="circle"><i class="fa-solid fa-laptop"></i></div>
+            <span>CBT<br />Practice</span>
+          </button>
+          <button class="quick-card" onclick="notify('Mock Test selected')">
+            <div class="circle"><i class="fa-solid fa-book-open"></i></div>
+            <span>Mock<br />Test</span>
+          </button>
+          <button class="quick-card" onclick="notify('Progress Tracker selected')">
+            <div class="circle"><i class="fa-solid fa-chart-line"></i></div>
+            <span>Progress<br />Tracker</span>
+          </button>
+          <button class="quick-card" onclick="notify('Bookmarks selected')">
+            <div class="circle"><i class="fa-solid fa-bookmark"></i></div>
+            <span>Book<br />Marks</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Recent activity -->
+      <section id="activity">
+        <div class="section-row">
+          <h2 class="section-title">Recent Activity</h2>
+          <a class="see" href="#">View all</a>
+        </div>
+
+        <article class="activity">
+          <div>
+            <h3>CBT Practice</h3>
+            <p>Mathematics · English Language · Economics · Government</p>
+          </div>
+          <div class="ring"></div>
+        </article>
+
+        <article class="activity">
+          <div>
+            <h3>Mathematics: Algebra</h3>
+            <p>Lesson completed · 24 minutes ago</p>
+          </div>
+          <strong style="color:var(--green-dim)">✓</strong>
+        </article>
+      </section>
+
+      <!-- Subjects -->
+      <section id="subjects" style="margin-top:24px">
+        <div class="section-row">
+          <h2 class="section-title">My Subjects</h2>
+          <a class="see" href="#">See all</a>
+        </div>
+
+        <div class="subjects">
+          <div class="subject">
+            <h3>Mathematics</h3>
+            <p>8 lessons · 82% progress</p>
+            <button onclick="notify('Opening Mathematics')">Continue</button>
+          </div>
+          <div class="subject">
+            <h3>English Language</h3>
+            <p>6 lessons · 68% progress</p>
+            <button onclick="notify('Opening English Language')">Continue</button>
+          </div>
+          <div class="subject">
+            <h3>Biology</h3>
+            <p>5 lessons · 54% progress</p>
+            <button onclick="notify('Opening Biology')">Continue</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../JS Pages/dashboard.js"></script>
+</body>
+</html>

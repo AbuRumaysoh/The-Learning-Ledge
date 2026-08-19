@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signed Out | The Learning Ledge</title>
+  <link rel="shortcut icon" href="../assets/icons/The_Learning_Ledge_Padded_Favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../CSS Pages/auth.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="../HTML Pages/index.html">
+      <img src="../assets/images/Logo Icon.png" alt="The Learning Ledge Logo" />
+      <span class="logo-text">The <span>Learning</span> Ledge</span>
+    </a>
+  </header>
+
+  <main class="signout-shell">
+    <div class="signout-card">
+      <div class="signout-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <h2>You've been signed out</h2>
+      <p>Your session on this device has ended. Sign back in any time to pick up where you left off.</p>
+
+      <div class="signout-actions">
+        <a class="primary-btn" href="../HTML Pages/login.html" style="display:block;text-align:center;text-decoration:none;">Sign In Again</a>
+        <a class="btn-outline" href="../HTML Pages/index.html">Return to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Clear the local session as soon as this page loads.
+    localStorage.removeItem('learningLedgeUser');
+  </script>
+</body>
+</html>
